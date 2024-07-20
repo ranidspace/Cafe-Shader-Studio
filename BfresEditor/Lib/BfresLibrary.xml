@@ -4,6 +4,61 @@
         <name>BfresLibrary</name>
     </assembly>
     <members>
+        <member name="T:BfresLibrary.Brtcamera">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BfresLibrary.Brtcamera.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BfresLibrary.Brtcamera.FrameCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BfresLibrary.Brtcamera.KeyFrames">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BfresLibrary.Brtcamera.UnknownValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BfresLibrary.Brtcamera.IsBigEndian">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BfresLibrary.Brtcamera.#ctor(System.IO.Stream,System.Boolean)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BfresLibrary.Brtcamera.KeyFrame">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BfresLibrary.Brtcamera.KeyFrame.Flag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BfresLibrary.Brtcamera.KeyFrame.Frame">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:BfresLibrary.Brtcamera.KeyFrame.Data">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:BfresLibrary.PlatformConverters.ConverterHandle">
             <summary>
             The conversion handler to process how to convert shaders and other data per game profile.
@@ -22,6 +77,11 @@
         <member name="F:BfresLibrary.PlatformConverters.ConverterHandle.MK8">
             <summary>
             Uses MK8 game preset.
+            </summary>
+        </member>
+        <member name="F:BfresLibrary.PlatformConverters.ConverterHandle.SM3DW">
+            <summary>
+            Uses 3DW game preset.
             </summary>
         </member>
         <member name="T:BfresLibrary.AnimCurve">
@@ -700,6 +760,13 @@
             <param name="key">The textual key to locate in the dictionary. The value can be <c>null</c>.</param>
             <returns><c>true</c> if <paramref name="key"/> was found in the dictionary; otherwise <c>false</c>.</returns>
         </member>
+        <member name="M:BfresLibrary.ResDict.GetKey(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
         <member name="M:BfresLibrary.ResDict.IndexOf(System.String)">
             <summary>
             Searches for the specified <paramref name="key"/> and returns the zero-based index of the first occurrence
@@ -1069,6 +1136,12 @@
         <member name="T:BfresLibrary.TexSrtMode">
             <summary>
             Represents the texture transformation mode used in <see cref="T:BfresLibrary.TexSrt"/> />.
+            </summary>
+        </member>
+        <member name="T:BfresLibrary.StringCache">
+            <summary>
+            A cache of strings that are saved through raw IDs in place of the pointer field of a name offset.
+            This is used and required for TOTK models.
             </summary>
         </member>
         <member name="T:BfresLibrary.TextureRef">
@@ -2336,6 +2409,12 @@
             </summary>
             <param name="value">A valid signature.</param>
         </member>
+        <member name="M:BfresLibrary.Core.ResFileSaver.Write(System.SByte[])">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
         <member name="T:BfresLibrary.Core.ResStringComparer">
             <summary>
             Represents a <see cref="P:System.StringComparer.Ordinal"/> sorting empty strings to the end of lists.
@@ -3251,6 +3330,11 @@
             Gets or sets the visible flag to display the material.
             </summary>
         </member>
+        <member name="P:BfresLibrary.Material.ShaderInfoV10">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:BfresLibrary.Material.TextureRefs">
             <summary>
             Gets or sets the list of <see cref="T:BfresLibrary.TextureRef"/> instances referencing the <see cref="!:Texture"/> instances
@@ -3731,6 +3815,11 @@
             Gets or sets customly attached <see cref="P:BfresLibrary.Model.UserData"/> instances.
             </summary>
         </member>
+        <member name="F:BfresLibrary.Model.ShaderAssign">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:BfresLibrary.Model.TotalVertexCount">
             <summary>
             Gets the total number of vertices to process when drawing this model.
@@ -4152,12 +4241,6 @@
             rigidbodies (no skinning), 1 equal rigid skinning and 2 or more smooth skinning.
             </summary>
         </member>
-        <member name="P:BfresLibrary.VertexBuffer.VertexCount">
-            <summary>
-            Gets the number of vertices stored by the <see cref="P:BfresLibrary.VertexBuffer.Buffers"/>. It is calculated from the size of the first
-            <see cref="T:BfresLibrary.Buffer"/> in bytes divided by the <see cref="P:BfresLibrary.Buffer.Stride"/>.
-            </summary>
-        </member>
         <member name="P:BfresLibrary.VertexBuffer.Attributes">
             <summary>
             Gets or sets the dictionary of <see cref="T:BfresLibrary.VertexAttrib"/> instances describing how to interprete data in the
@@ -4310,7 +4393,7 @@
         </member>
         <member name="P:BfresLibrary.ResFile.Textures">
             <summary>
-            Gets or sets the stored <see cref="!:Texture"/> (FTEX) instances.
+            Gets or sets the stored <see cref="T:Syroot.NintenTools.NSW.Bntx.Texture"/> (FTEX) instances.
             </summary>
         </member>
         <member name="P:BfresLibrary.ResFile.SkeletalAnims">
@@ -5689,6 +5772,14 @@
             </summary>
             <param name="resFile">The <see cref="!:Bfres.ResFile"/> instance to save.</param>
             <param name="fileName">The name of the file to save the data into.</param>
+        </member>
+        <member name="M:BfresLibrary.Switch.Core.ResFileSwitchSaver.SaveStringsRelocated(System.Collections.Generic.IEnumerable{System.String},System.Text.Encoding)">
+            <summary>
+            Reserves space for offsets to the <paramref name="strings"/> written later in the string pool with the
+            specified <paramref name="encoding"/>
+            </summary>
+            <param name="strings">The names to save.</param>
+            <param name="encoding">The <see cref="T:System.Text.Encoding"/> in which the names will be stored.</param>
         </member>
         <member name="M:BfresLibrary.Switch.Core.ResFileSwitchSaver.SaveFieldFileSize">
             <summary>
